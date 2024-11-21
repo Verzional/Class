@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,8 +9,12 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard', ['pageTitle' => 'Dashboard']);
-})-> name('dashboard');
+})->name('dashboard');
 
 Route::get('/projects', function () {
-    return view('projects', ['pageTitle' => 'Projects']);
-})-> name('projects');
+    return view('projects', ['pageTitle' => 'Projects', 'projects' => Project::allData()]);
+})->name('projects');
+
+Route::get('/projects/{code}', function ($code) {
+    return view('showProject', ['pageTitle' => 'Project Detail', 'project' => Project::dataWithCode($code)]);
+})->name('project');

@@ -3,32 +3,38 @@
     <x-main>
         <h1> My Projects </h1>
         <div class="flex justify-center">
-            <table class="border-collapse border border-gray-400">
-                <tr class="border-collapse border border-gray-400">
-                    <th>NO</th>
-                    <th>PROJECT</th>
-                    <th>SEMESTER</th>
-                    <th>DESCRIPTION</th>
+            <table class="mt-10 table-auto border-collapse border border-gray-400 w-full text-left">
+                <tr>
+                    <th class="border border-gray-400 px-4 py-2">No</th>
+                    <th class="border border-gray-400 px-4 py-2">Code</th>
+                    <th class="border border-gray-400 px-4 py-2">Course</th>
+                    <th class="border border-gray-400 px-4 py-2">Project</th>
+                    <th class="border border-gray-400 px-4 py-2">Semester</th>
+                    <th class="border border-gray-400 px-4 py-2">Description</th>
                 </tr>
-                @php($projects = ['Calculator', 'Accounting', 'Student Report', 'POS Resto', 'Online Store', 'Pet Shop'])
+
                 @foreach ($projects as $project)
                     @if ($loop->even)
                         @php($semester = 'EVEN')
-                    @else   
+                    @else
                         @php($semester = 'ODD')
                     @endif
-                    <tr class="border-collapse border border-gray-400">
-                        <td>{{ $loop->index + 1 }}</td>
-                        <td>{{ $project }}</td>
-                        <td>{{ $semester }}</td>
-                        <td>
+                    <tr>
+                        <td class="border border-gray-400 px-4 py-2">{{ $loop->index + 1 }}</td>
+                        <td class="border border-gray-400 px-4 py-2">{{ $project['code'] }}</td>
+                        <td class="border border-gray-400 px-4 py-2">{{ $project['course'] }}</td>
+                        <td class="border border-gray-400 px-4 py-2">
+                            <a href="projects/{{ $project['code'] }}">{{ $project['title'] }}</a>
+                        </td>
+                        <td class="border border-gray-400 px-4 py-2">{{ $semester }}</td>
+                        <td class="border border-gray-400 px-4 py-2">
                             @if ($loop->first)
-                                My very FIRST project
+                                My Very First Project
                             @elseif ($loop->last)
-                                My LAST project
+                                My Very Last Project
                             @else
-                                Lorem ipsum dolor sit amet.
-                            @endif ()
+                                My Project
+                            @endif
                         </td>
                     </tr>
                 @endforeach
