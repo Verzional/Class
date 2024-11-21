@@ -13,19 +13,19 @@ class Project extends Model
         [
             'id' => "1",
             'title' => 'Calculator',
-            'code' => 'Calc',
+            'code' => 'cal',
             'course' => "Algorithm and Programming"
         ],
         [
             'id' => "2",
             'title' => 'Accounting',
-            'code' => 'Acc',
+            'code' => 'acc',
             'course' => "Web Programming",
         ],
         [
             'id' => "3",
             'title' => 'Student Report',
-            'code' => 'Stu',
+            'code' => 'stu',
             'course' => "Web Programming",
         ]
     ];

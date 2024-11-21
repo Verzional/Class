@@ -6,7 +6,6 @@
             <table class="mt-10 table-auto border-collapse border border-gray-400 w-full text-left">
                 <tr>
                     <th class="border border-gray-400 px-4 py-2">No</th>
-                    <th class="border border-gray-400 px-4 py-2">Code</th>
                     <th class="border border-gray-400 px-4 py-2">Course</th>
                     <th class="border border-gray-400 px-4 py-2">Project</th>
                     <th class="border border-gray-400 px-4 py-2">Semester</th>
@@ -21,10 +20,9 @@
                     @endif
                     <tr>
                         <td class="border border-gray-400 px-4 py-2">{{ $loop->index + 1 }}</td>
-                        <td class="border border-gray-400 px-4 py-2">{{ $project['code'] }}</td>
                         <td class="border border-gray-400 px-4 py-2">{{ $project['course'] }}</td>
                         <td class="border border-gray-400 px-4 py-2">
-                            <a href="projects/{{ $project['code'] }}">{{ $project['title'] }}</a>
+                            <a href="project/{{ $project['code'] }}">{{ $project['title'] }}</a>
                         </td>
                         <td class="border border-gray-400 px-4 py-2">{{ $semester }}</td>
                         <td class="border border-gray-400 px-4 py-2">
