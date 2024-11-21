@@ -2,38 +2,37 @@
     <x-slot:layoutTitle>{{ $pageTitle }}</x-slot:layoutTitle>
     <x-main>
         <h1> My Projects </h1>
-        <table>
-            <tr>
-                <th> No </th>
-                <th> Project </th>
-                <th> Semester </th>
-                <th> Description </th>
-            </tr>
-            @php($projects = ['Calculator', 'Accounting', 'Student Report', 'POS Resto', 'Online Store', 'Pet Shop'])
-
-            @php($i = 0)
-            @foreach ($projects as $pro)
-                @php($i++)
-                @if ($i % 2 == 0)
-                    @php($semester = 'EVEN')
-                @else
-                    @php($semester = 'ODD')
-                @endif
-                <tr>
-                    <td>{{ $i }}</td>
-                    <td>{{ $pro }}</td>
-                    <td>{{ $semester }}</td>
-                    <td>
-                        @if ($i == 1)
-                            My very FIRST project
-                        @elseif ($i == count($projects))
-                            My LAST project
-                        @else
-                            Lorem ipsum dolor sit amet.
-                        @endif
-                    </td>
+        <div class="flex justify-center">
+            <table class="border-collapse border border-gray-400">
+                <tr class="border-collapse border border-gray-400">
+                    <th>NO</th>
+                    <th>PROJECT</th>
+                    <th>SEMESTER</th>
+                    <th>DESCRIPTION</th>
                 </tr>
-            @endforeach
-        </table>
+                @php($projects = ['Calculator', 'Accounting', 'Student Report', 'POS Resto', 'Online Store', 'Pet Shop'])
+                @foreach ($projects as $project)
+                    @if ($loop->even)
+                        @php($semester = 'EVEN')
+                    @else   
+                        @php($semester = 'ODD')
+                    @endif
+                    <tr class="border-collapse border border-gray-400">
+                        <td>{{ $loop->index + 1 }}</td>
+                        <td>{{ $project }}</td>
+                        <td>{{ $semester }}</td>
+                        <td>
+                            @if ($loop->first)
+                                My very FIRST project
+                            @elseif ($loop->last)
+                                My LAST project
+                            @else
+                                Lorem ipsum dolor sit amet.
+                            @endif ()
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
     </x-main>
 </x-layout>
